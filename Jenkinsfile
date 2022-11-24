@@ -13,14 +13,14 @@ pipeline{
         
        stage('Build Maven'){
             steps{
-                sh 'mvn clean package'
+                sh 'mvn clean install'
             }
          }
         
         
-       stage('build && SonarQube analysis') {
+       stage('SonarQube analysis') {
             steps {
-                withSonarQubeEnv('sonarqube-9.2.2') {
+                withSonarQubeEnv('Sonarqube') {
                     // Optionally use a Maven environment you've configured already
                    
                         sh 'mvn clean package sonar:sonar'

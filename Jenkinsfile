@@ -13,7 +13,7 @@ pipeline{
         
        stage('Build Maven'){
             steps{
-                sh 'mvn clean package'
+                sh 'mvn clean install'
             }
          }
         
@@ -23,7 +23,7 @@ pipeline{
                 withSonarQubeEnv('Sonarqube') {
                     // Optionally use a Maven environment you've configured already
                    
-                        sh 'mvn clean package sonar:sonar'
+                        sh 'mvn sonar:sonar'
                     
                 }
             }

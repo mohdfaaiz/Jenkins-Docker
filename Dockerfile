@@ -5,6 +5,6 @@
 # RUN mvn clean install
 
 FROM openjdk
-WORKDIR /My-app
-COPY ./target/my-app-*.jar ./my-app.jar
-CMD ["java", "-jar", "./my-app.jar"]
+EXPOSE 8080
+ADD ./target/my-app-*.jar ./my-app.jar
+ENTRYPOINT ["java", "-jar", "./my-app.jar"]

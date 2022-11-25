@@ -50,7 +50,7 @@ pipeline{
                 }
             }
         }
-        stage('Romove image') {
+        stage('Remove image') {
             steps {
                 script {
                     sh 'docker rmi -f myapp:latest'

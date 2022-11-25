@@ -51,13 +51,13 @@ pipeline{
             }
         }
         
-//         stage('logout docker') {
-//             steps {
-//                 script {
-//                     sh 'docker logout'
-//                 }
-//             }
-//         }
+        stage('logout docker') {
+            steps {
+                script {
+                    sh 'docker logout'
+                }
+            }
+        }
 
         
 

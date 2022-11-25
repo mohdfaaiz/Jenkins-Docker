@@ -6,5 +6,5 @@
 
 FROM openjdk
 EXPOSE 8080
-COPY ./target/my-app.jar.jar ./my-app.jar
+ADD ./target/my-app.jar.jar ./my-app.jar
 CMD ["java", "-jar", "./my-app.jar"]

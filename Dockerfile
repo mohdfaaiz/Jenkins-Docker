@@ -6,5 +6,5 @@
 
 FROM openjdk
 EXPOSE 8080
-COPY ./target/my-app.jar.jar ./my-app.jar
+COPY ./target/my-app-1.0-SNAPSHOT.jar ./my-app.jar
 CMD ["java", "-jar", "./my-app.jar"]

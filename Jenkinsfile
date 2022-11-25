@@ -50,7 +50,22 @@ pipeline{
                 }
             }
         }
+              stage('Romove image') {
+            steps {
+                script {
+                    sh 'docker rmi -f my-app:1.01'
+                }
+            }
+        }
+
         
+        stage('logout docker') {
+            steps {
+                script {
+                    sh 'docker logout'
+                }
+            }
+        }
 
         
 

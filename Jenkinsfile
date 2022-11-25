@@ -31,7 +31,7 @@ pipeline{
        stage("Build Docker Image") {
             steps {
                 script {
-                    sh 'docker build -t my-app:1.01 .'
+                    sh 'docker build -t my-app .'
                     sh 'mvn -version'
                 }
             }

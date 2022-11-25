@@ -31,35 +31,25 @@ pipeline{
        stage("Build Docker Image") {
             steps {
                 script {
-                    sh 'docker build -t my-app .'
+                    sh 'docker build -t myapp .'
+                    sh 'docker tag myapp mohammedfaaiz/myapp:latest'
                     sh 'mvn -version'
                 }
             }
         }
-         
-//        stage('pushing to dockerhub') {
-//             steps {
-//                 script {
-//                     withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
-//                     // some block
-//                     sh 'docker login -u fayizv -p ${dockerhubpwd}'
-//                     }
-// //                     sh 'docker tag my-app:1.01 fayizv/myapp:1.01 '
-// //                     sh 'echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin'
-
-//                     sh 'docker push fayizv/myapp:1.01 '
-//                 }
-//             }
-//         }  
         
-//         stage('Romove image') {
-//             steps {
-//                 script {
-//                     sh 'docker rmi -f my-app:1.01'
-//                 }
-//             }
-//         }
-
+        stage('pushing to dockerhub'){
+            steps{
+                script{
+                    withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerhubpwd')]) {
+                  // some block
+                    sh 'docker login -u mohammedfaaiz -p ${dockerhubpwd}'
+                    
+                    sh 'docker push mohammedfaaiz/myapp:latest'
+                    }
+                }
+            }
+        }
         
 //         stage('logout docker') {
 //             steps {
@@ -72,11 +62,7 @@ pipeline{
         
 
 
-//         stage("Quality gate") {
-//             steps {
-//                 waitForQualityGate abortPipeline: true
-//             }
-//         }
+
        
     }
 }

@@ -50,10 +50,10 @@ pipeline{
                 }
             }
         }
-              stage('Romove image') {
+        stage('Romove image') {
             steps {
                 script {
-                    sh 'docker rmi -f my-app:1.01'
+                    sh 'docker rmi -f myapp:latest'
                 }
             }
         }
@@ -66,11 +66,5 @@ pipeline{
                 }
             }
         }
-
-        
-
-
-
-       
     }
 }

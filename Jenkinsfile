@@ -28,14 +28,14 @@ pipeline{
                 }
             }
         }
-//        stage("Build Docker Image") {
-//             steps {
-//                 script {
-//                     sh 'docker build -t my-app:1.01 .'
-//                     sh 'mvn -version'
-//                 }
-//             }
-//         }
+       stage("Build Docker Image") {
+            steps {
+                script {
+                    sh 'docker build -t my-app:1.01 .'
+                    sh 'mvn -version'
+                }
+            }
+        }
          
 //        stage('pushing to dockerhub') {
 //             steps {

@@ -6,5 +6,5 @@
 
 FROM openjdk
 EXPOSE 8080
-ADD ./target/my-app-*.jar ./my-app.jar
-ENTRYPOINT ["java", "-jar", "./my-app.jar"]
+COPY ./target/my-app.jar.jar ./my-app.jar
+CMD ["java", "-jar", "./my-app.jar"]
